@@ -3,19 +3,16 @@
 #include <hex.hpp>
 #include <hex/helpers/concepts.hpp>
 
-#include <pl/pattern_language.hpp>
-
 #include <functional>
 #include <map>
 #include <span>
 #include <string>
-#include <thread>
 #include <utility>
 #include <vector>
 
-#include <jthread.hpp>
-
+#include <pl/pattern_language.hpp>
 #include <nlohmann/json.hpp>
+#include <wolv/io/fs.hpp>
 
 using ImGuiDataType = int;
 using ImGuiInputTextFlags = int;
@@ -971,12 +968,6 @@ namespace hex {
             namespace impl {
                 using Callback = std::function<void()>;
 
-                struct Service {
-                    std::string name;
-                    std::jthread thread;
-                };
-
-                std::vector<Service> &getServices();
                 void stopServices();
             }
 
